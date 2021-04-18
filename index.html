@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    <h1>Asynchronous JS</h1>
+    
+
+    <script>
+//         const second = () => {
+//            setTimeout( ()=>{
+//             console.log('Async Hey there!');
+//            },2000)
+//         }
+// const first = () => {
+// console.log('Hey there!');
+// second();
+// console.log('The End'); 
+// }
+
+// first();
+
+// CallBack 
+
+// function getRecipe(){
+// setTimeout( () => {
+// const recipeId = [12,34,465,56];
+// console.log(recipeId);
+
+// setTimeout( (id) =>{
+// const recipe = {
+//     title:'Fresh Tomato Pasta',
+//     publisher:'Hamza'
+// };
+// console.log(`${id}: ${recipe.title} published by ${recipe.publisher}`);
+
+// setTimeout(publisher => {
+//     const recipe ={
+//         title:'Italian Pizza',
+//         publisher:'Hamza'
+//     };
+//     console.log(`${publisher} has another item which is ${recipe.title}`);
+// },1500,recipe.publisher);
+
+// },1000,recipeId[2]);
+
+// },1500);
+// }
+// getRecipe();
+
+// Promises
+
+const getIds = new Promise( (resolve, reject) =>{
+ setTimeout(() =>{
+    resolve([234,234,6756,3423]);
+    //reject([10,20,30,5]);
+ },1500)
+});
+// fulfilled
+getIds.then(Ids =>{
+    console.log(Ids);
+})
+// reject state
+.catch(error =>{
+    console.log('Error!!!');
+}); 
+
+    </script>
+</body>
+</html>
