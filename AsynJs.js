@@ -73,18 +73,34 @@ const getIds = new Promise( (resolve, reject) =>{
    };
    
    // fulfilled
-   getIds.then(Ids =>{
-       console.log(Ids);
-       return getRecipe(Ids[2]);
-   })
-   .then(recipe =>{
-   console.log(recipe);
-   return getRelated('Hamza');
-   })
-   .then(recipe =>{
-       console.log(recipe);
-   })
-   // reject state
-   .catch(error =>{
-       console.log('Error!!!');
-   });
+//    getIds.then(Ids =>{
+//        console.log(Ids);
+//        return getRecipe(Ids[2]);
+//    })
+//    .then(recipe =>{
+//    console.log(recipe);
+//    return getRelated('Hamza');
+//    })
+//    .then(recipe =>{
+//        console.log(recipe);
+//    })
+//    // reject state
+//    .catch(error =>{
+//        console.log('Error!!!');
+//    });
+
+
+async function getRecipeAW(){
+    const Ids = await getIds;
+    console.log(Ids);
+
+    const recipe = await getRecipe(Ids[2]);
+    console.log(recipe);
+
+    const related = await getRelated('Hamza');
+    console.log(related);
+
+    return recipe;
+}
+
+getRecipeAW().then(result => console.log(`${result} is the best ever!`));
