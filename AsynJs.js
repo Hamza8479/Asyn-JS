@@ -41,36 +41,36 @@
 
 // Promises
 
-const getIds = new Promise( (resolve, reject) =>{
-    setTimeout(() =>{
-       resolve([234,234,675,342]);
-       //reject([10,20,30,5]);
-    },1500)
-   });
+// const getIds = new Promise( (resolve, reject) =>{
+//     setTimeout(() =>{
+//        resolve([234,234,675,342]);
+//        //reject([10,20,30,5]);
+//     },1500)
+//    });
    
-   const getRecipe = recId =>{
-       return new Promise((resolve, reject)  =>{
-           setTimeout(Id =>{
-           const recipe ={
-            title:'Italian Pizza',
-            publisher:'Hamza'
-        };
-        resolve(`${Id}: ${recipe.title}`);
-       },1500,recId);
-       });
-   };
+//    const getRecipe = recId =>{
+//        return new Promise((resolve, reject)  =>{
+//            setTimeout(Id =>{
+//            const recipe ={
+//             title:'Italian Pizza',
+//             publisher:'Hamza'
+//         };
+//         resolve(`${Id}: ${recipe.title}`);
+//        },1500,recId);
+//        });
+//    };
    
-   const getRelated = publisher =>{
-       return new Promise((resolve, reject) =>{
-           setTimeout(pub =>{
-               const recipe = {
-                   title:'PIzza',
-                   publisher:'Hamza'
-               };
-               resolve(`${pub}: ${recipe.title}`);
-           },1500, publisher);
-       });
-   };
+//    const getRelated = publisher =>{
+//        return new Promise((resolve, reject) =>{
+//            setTimeout(pub =>{
+//                const recipe = {
+//                    title:'PIzza',
+//                    publisher:'Hamza'
+//                };
+//                resolve(`${pub}: ${recipe.title}`);
+//            },1500, publisher);
+//        });
+//    };
    
    // fulfilled
 //    getIds.then(Ids =>{
@@ -89,18 +89,27 @@ const getIds = new Promise( (resolve, reject) =>{
 //        console.log('Error!!!');
 //    });
 
+//  consume Promise
+// async function getRecipeAW(){
+//     const Ids = await getIds;
+//     console.log(Ids);
 
-async function getRecipeAW(){
-    const Ids = await getIds;
-    console.log(Ids);
+//     const recipe = await getRecipe(Ids[2]);
+//     console.log(recipe);
 
-    const recipe = await getRecipe(Ids[2]);
-    console.log(recipe);
+//     const related = await getRelated('Hamza');
+//     console.log(related);
 
-    const related = await getRelated('Hamza');
-    console.log(related);
+//     return recipe;
+// }
 
-    return recipe;
-}
+// getRecipeAW().then(result => console.log(`${result} is the best ever!`));
 
-getRecipeAW().then(result => console.log(`${result} is the best ever!`));
+
+
+fetch('https://www.metaweather.com/api/location/2487956/').then( (apiData) =>{
+    console.log(apiData);
+});
+
+// to make requests to diff domains cross origin resource sharing (CORS) was developed 
+// have to impelement CORS on our server for requesting API
