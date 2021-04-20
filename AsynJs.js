@@ -107,14 +107,30 @@
 
 
 
-fetch('https://www.metaweather.com/api/location/2487956/').then( (apiData) =>{
-    const data = JSON.parse(apiData);
-    console.log(data);
-})
-// .then( (actualData) =>{
-//     console.log(actualData);
+// fetch('https://www.metaweather.com/api/location/2487956/').then( (apiData) =>{
+//     const data = JSON.parse(apiData);
+//     console.log(data);
 // })
-.catch(err => console.log(err));
+// // .then( (actualData) =>{
+// //     console.log(actualData);
+// // })
+// .catch(err => console.log(err));
 
 // to make requests to diff domains cross origin resource sharing (CORS) was developed 
 // have to impelement CORS on our server for requesting API
+
+
+const userLocation = "pakistan";
+const url = fetch(
+  `https://covid-193.p.rapidapi.com/history?country=${userLocation}`,
+  {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "covid-193.p.rapidapi.com",
+      "x-rapidapi-key": "1f98988481mshaf71d0b16041b35p14a73cjsn1e20a5387d6d",
+    },
+  }
+)
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));
