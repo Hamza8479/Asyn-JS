@@ -108,8 +108,13 @@
 
 
 fetch('https://www.metaweather.com/api/location/2487956/').then( (apiData) =>{
-    console.log(apiData);
-});
+    const data = JSON.parse(apiData);
+    console.log(data);
+})
+// .then( (actualData) =>{
+//     console.log(actualData);
+// })
+.catch(err => console.log(err));
 
 // to make requests to diff domains cross origin resource sharing (CORS) was developed 
 // have to impelement CORS on our server for requesting API
