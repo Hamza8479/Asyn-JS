@@ -132,7 +132,7 @@ function getWeather(woeid){
       }
     )
       .then((response) => {
-          console.log(response);
+         // console.log(response);
          return response.json();
       })
       .then((data) => {
@@ -143,3 +143,24 @@ function getWeather(woeid){
 
 getWeather("pakistan");
 getWeather("China");
+
+
+async function getWeatherAW(woeid){
+  const result =await fetch(
+    `https://covid-193.p.rapidapi.com/history?country=${woeid}`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "1f98988481mshaf71d0b16041b35p14a73cjsn1e20a5387d6d",
+      },
+    }
+    
+  )
+  const data = await result.json();
+  const today = data.response[0];
+  console.log(`${today.day} In ${today.continent} country ${today.country} active corona cases are ${today.cases.active} and new are ${today.cases.new}`);
+}
+
+getWeatherAW("pakistan");
+getWeatherAW("China");
