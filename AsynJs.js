@@ -161,11 +161,15 @@ async function getWeatherAW(woeid){
     const data = await result.json();
     const today = data.response[0];
     console.log(`${today.day} In ${today.continent} country ${today.country} active corona cases are ${today.cases.active} and new are ${today.cases.new}`);
-  
+    return data;
   } catch(err){
     console.log(err);
   }
 }
 
 getWeatherAW("pakistan");
-getWeatherAW("China");
+let dataChina;
+getWeatherAW("China").then(data =>{
+  dataChina = data;
+  console.log(dataChina);
+});
